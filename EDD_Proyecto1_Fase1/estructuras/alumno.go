@@ -5,4 +5,5 @@ type Alumno struct {
 	apellido string
 	carnet   int
 	password string
+	bitacora *PilaAlumn
 }

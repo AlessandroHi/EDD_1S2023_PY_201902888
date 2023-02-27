@@ -15,12 +15,16 @@ func (c *Cola) estaVacia() bool {
 	}
 }
 
+func (c *Cola) Len() int {
+	return c.Longitud
+}
+
 func (c *Cola) newNodo(alumno *Alumno) *NodoCola {
 	return &NodoCola{alumno, nil}
 }
 
 func (c *Cola) Encolar(nombre string, apellido string, carnet int, pass string) {
-	nuevoAlumno := &Alumno{nombre, apellido, carnet, pass}
+	nuevoAlumno := &Alumno{nombre, apellido, carnet, pass, nil}
 	if c.estaVacia() {
 		c.Primero = c.newNodo(nuevoAlumno)
 		c.Longitud++
@@ -37,11 +41,22 @@ func (c *Cola) Encolar(nombre string, apellido string, carnet int, pass string) 
 	}
 }
 
+func (c *Cola) Descolar() {
+	if c.estaVacia() {
+		fmt.Println("La cola de alumnos esta vacia")
+	} else {
+		c.Primero = c.Primero.siguiente
+		c.Longitud--
+	}
+}
+
 func (c *Cola) MostrarCola() {
 	aux := c.Primero
 	for aux != nil {
 		fmt.Print(aux.alumno.carnet)
 		fmt.Println(" ---> ", aux.alumno.nombre)
+		fmt.Println("--- Hora de inicio de sesion")
+		aux.alumno.bitacora.MostrarBita()
 		aux = aux.siguiente
 	}
 }
