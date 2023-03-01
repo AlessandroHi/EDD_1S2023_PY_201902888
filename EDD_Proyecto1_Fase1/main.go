@@ -143,6 +143,7 @@ func addListAlum() {
 				PilaAdmin.Graficar()
 				ColaAlumnos.Graficar()
 				ListAlumnos.Graficar()
+				ListAlumnos.ArchivoJSON()
 			case 2:
 				fecha := log1()
 				log := "Rechazo estudiante: " + aux.GetNombre() + " " + aux.GetApellido() + " \n"

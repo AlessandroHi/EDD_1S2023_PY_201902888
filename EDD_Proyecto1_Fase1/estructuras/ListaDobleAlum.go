@@ -135,6 +135,47 @@ func (l *ListaDoble) Graficar() {
 	ejecutar(nombre_imagen, nombre_archivo)
 }
 
+func (l *ListaDoble) ArchivoJSON() {
+	contenido := "{\n"
+	contenido += "\t\"Alumnos\": [\n"
+	//SOLO SI HAY UN ESTUDIANTES
+	if l.Longuitud == 1 {
+		aux3 := l.inicio
+		contenido += "\t\t{\n"
+		contenido += "\t\t\t\"nombre\": \"" + aux3.alumno.nombre + " " + aux3.alumno.apellido + "\", \n"
+		contenido += "\t\t\t\"carnet\": " + strconv.Itoa(aux3.alumno.carnet) + ", \n"
+		contenido += "\t\t\t\"password\": \"" + aux3.alumno.password + "\", \n"
+		contenido += "\t\t\t\"Carpeta_Raiz\": \"/\" \n"
+		contenido += "\t\t}\n"
+	}
+
+	if l.Longuitud > 1 {
+		aux := l.inicio
+		for aux.siguiente != nil {
+			contenido += "\t\t{\n"
+			contenido += "\t\t\t\"nombre\": \"" + aux.alumno.nombre + " " + aux.alumno.apellido + "\", \n"
+			contenido += "\t\t\t\"carnet\": " + strconv.Itoa(aux.alumno.carnet) + ", \n"
+			contenido += "\t\t\t\"password\": \"" + aux.alumno.password + "\", \n"
+			contenido += "\t\t\t\"Carpeta_Raiz\": \"/\" \n"
+			contenido += "\t\t},\n"
+			aux = aux.siguiente
+		}
+
+		aux2 := l.ultimo
+		contenido += "\t\t{\n"
+		contenido += "\t\t\t\"nombre\": \"" + aux2.alumno.nombre + " " + aux2.alumno.apellido + "\", \n"
+		contenido += "\t\t\t\"carnet\": " + strconv.Itoa(aux2.alumno.carnet) + ", \n"
+		contenido += "\t\t\t\"password\": \"" + aux2.alumno.password + "\", \n"
+		contenido += "\t\t\t\"Carpeta_Raiz\": \"/\" \n"
+		contenido += "\t\t}\n"
+	}
+
+	contenido += "\t]\n"
+	contenido += "}"
+	CrearArchivo()
+	EscribirArchivo(contenido)
+}
+
 func NewLista() *ListaDoble {
 	lista := new(ListaDoble)
 	lista.inicio = nil
