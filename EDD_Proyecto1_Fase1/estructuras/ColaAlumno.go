@@ -1,6 +1,9 @@
 package estructuras
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 type Cola struct {
 	Primero  *NodoCola
@@ -30,7 +33,7 @@ func (c *Cola) Encolar(nombre string, apellido string, carnet int, pass string) 
 		c.Longitud++
 		fmt.Print("**Se encola correctamente el alumno\n\n")
 
-	} else {
+	} else if c.repeat(nombre, carnet) {
 		aux := c.Primero
 		for aux.siguiente != nil {
 			aux = aux.siguiente
@@ -55,12 +58,51 @@ func (c *Cola) MostrarCola() {
 	for aux != nil {
 		fmt.Print(aux.alumno.carnet)
 		fmt.Println(" ---> ", aux.alumno.nombre)
-		fmt.Println("--- Hora de inicio de sesion")
-		aux.alumno.bitacora.MostrarBita()
 		aux = aux.siguiente
 	}
 }
 
+func (c *Cola) repeat(nombre string, carnet int) bool {
+	aux := c.Primero
+	for aux != nil {
+		if aux.alumno.nombre == nombre && aux.alumno.carnet == carnet {
+			fmt.Println("Ya existe el estudiante en la cola: ", carnet, " ", nombre)
+			return false
+		} else {
+			aux = aux.siguiente
+		}
+
+	}
+	return true
+}
+
+func (c *Cola) Graficar() {
+	nombre_archivo := "./colaAlum.dot"
+	nombre_imagen := "colaAlum.png"
+	texto := `digraph colaAlum{
+	         	{rank=same;` + "\n"
+	aux := c.Primero
+	for i := 0; i < c.Longitud; i++ {
+		texto += strconv.Itoa(aux.alumno.carnet) + `[style=filled, shape=box, fillcolor="#8AECDC", label="` + aux.alumno.nombre + "  " + aux.alumno.apellido + ` \n ` + strconv.Itoa(aux.alumno.carnet) + "\"]\n"
+		aux = aux.siguiente
+	}
+	texto += `  }
+	           `
+	aux1 := c.Primero
+	for i := 0; i < c.Longitud; i++ {
+
+		if i < c.Longitud-1 {
+			texto += strconv.Itoa(aux1.alumno.carnet) + " -> "
+			aux1 = aux1.siguiente
+		} else {
+			texto += strconv.Itoa(aux1.alumno.carnet)
+		}
+	}
+	texto += "\n}"
+	crearArchivo(nombre_archivo)
+	escribirArchivoDot(texto, nombre_archivo)
+	ejecutar(nombre_imagen, nombre_archivo)
+}
 func New_Cola() *Cola {
 	return &Cola{nil, 0}
 }

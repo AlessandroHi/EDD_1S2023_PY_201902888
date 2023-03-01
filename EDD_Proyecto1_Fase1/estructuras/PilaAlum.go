@@ -15,16 +15,40 @@ func (p *PilaAlumn) estaVacia() bool {
 	}
 }
 
-func (p *PilaAlumn) Push(hora string) {
+func (p *PilaAlumn) Push(data string) {
 	if p.estaVacia() {
-		nuevoNodo := &NodoPilaAlum{hora, nil}
+		nuevoNodo := &NodoPilaAlum{data, nil}
 		p.Primero = nuevoNodo
 		p.Longitud++
 	} else {
-		nuevoNodo := &NodoPilaAlum{hora, p.Primero}
+		nuevoNodo := &NodoPilaAlum{data, p.Primero}
 		p.Primero = nuevoNodo
 		p.Longitud++
 	}
+}
+
+func (p *PilaAlumn) GraficarBita(nombre string) string {
+
+	if p.Longitud == 0 {
+		texto := nombre + "[style=filled, fillcolor=\"#CFEF41\",color=\"#6349F0\",shape=record label=\"{}\"];"
+		return texto
+	} else {
+		texto := nombre + "[style=filled, fillcolor=\"#CFEF41\",color=\"#6349F0\",shape=record "
+		aux := p.Primero
+		texto += "label=\"{|"
+		for i := 0; i < p.Longitud; i++ {
+			if aux == p.Primero {
+				texto = texto + aux.hora
+			} else {
+				texto = texto + "|" + aux.hora
+			}
+
+			aux = aux.siguiente
+		}
+		texto += "}\"];"
+		return texto
+	}
+
 }
 
 func (p *PilaAlumn) MostrarBita() {

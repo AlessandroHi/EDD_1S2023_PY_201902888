@@ -2,14 +2,18 @@ package main
 
 import (
 	"EDD_Proyecto1_Fase1/estructuras"
+	"encoding/csv"
 	"fmt"
+	"log"
+	"os"
 	"strconv"
+	"strings"
 	"time"
 )
 
 var ColaAlumnos = estructuras.New_Cola() // COLA DE ALUMNOS SIN ACEPTAR AL SISTEMA
 var ListAlumnos = estructuras.NewLista() //LISTA DOBLE PARA ACEPTAR AL SISTEMA
-var PilaAdmin = estructuras.New_Pila()
+var PilaAdmin = estructuras.New_Pila()   //PILA DE ADMIN
 
 func main() {
 
@@ -34,15 +38,20 @@ func main() {
 }
 
 func login() {
-	user := ""
-	pass := ""
+	var user string
+	var pass string
 	fmt.Println("-------------------------")
 	fmt.Println("* Ingrese el usuario:    ")
 	fmt.Scanln(&user)
+	carnet, _ := strconv.Atoi(user)
 	fmt.Println("* Ingrese contraseña:    ")
 	fmt.Scanln(&pass)
 	if user == "admin" && pass == "admin" {
 		dashAdmin()
+	} else if ListAlumnos.Search(carnet, pass, log1()) {
+		fmt.Print("Inicio sesion correctamente \n\n")
+		ListAlumnos.Graficar()
+
 	} else {
 		fmt.Println("* Usuario o Contraseña incorrecta, vuelva a intentarlo...")
 		fmt.Println("")
@@ -68,15 +77,19 @@ func dashAdmin() {
 		switch option {
 		case 1:
 			addListAlum()
-		case 2:
 
+		case 2:
+			ListAlumnos.MostrarConsola()
 		case 3:
 			addAlumno()
 		case 4:
+			LecturaCSV()
+			ColaAlumnos.Graficar()
 
 		case 5:
 			fmt.Println("Cerrando sesion...")
 			exit = true
+
 		}
 	}
 }
@@ -95,6 +108,7 @@ func addAlumno() {
 	fmt.Println("Ingrese  contraseña: ")
 	fmt.Scanln(&pass)
 	ColaAlumnos.Encolar(nombre, apellido, carnet, pass)
+	ColaAlumnos.Graficar()
 
 }
 
@@ -111,6 +125,7 @@ func addListAlum() {
 			exit = true
 		}
 		if ColaAlumnos.Len() > 0 {
+			fmt.Println("* -----------  Pendientes: ", ColaAlumnos.Len(), " ---------- *")
 			fmt.Println("*  Estudiante Actual: ", aux.GetNombre(), " ", aux.GetApellido(), "  *") //OBTENER
 			fmt.Println("*  1. Aceptar al Estudiante               *")
 			fmt.Println("*  2. Rechazr al Estudiante               *")
@@ -120,9 +135,22 @@ func addListAlum() {
 			switch option {
 			case 1:
 				ListAlumnos.Insertar(aux.GetNombre(), aux.GetApellido(), aux.GetCarnet(), aux.GetPass())
+				fecha := log1()
+				log := "Acepto estudiante: " + aux.GetNombre() + " " + aux.GetApellido() + " \n"
+				log += fecha
+				PilaAdmin.Push(log)
 				ColaAlumnos.Descolar()
+				PilaAdmin.Graficar()
+				ColaAlumnos.Graficar()
+				ListAlumnos.Graficar()
 			case 2:
+				fecha := log1()
+				log := "Rechazo estudiante: " + aux.GetNombre() + " " + aux.GetApellido() + " \n"
+				log += fecha
+				PilaAdmin.Push(log)
 				ColaAlumnos.Descolar()
+				PilaAdmin.Graficar()
+				ColaAlumnos.Graficar()
 			case 3:
 				exit = true
 
@@ -132,7 +160,43 @@ func addListAlum() {
 	}
 }
 
-func log() string {
+func LecturaCSV() {
+	var ruta string
+	fmt.Print("Ingrese el nombre del archivo a abrir: ")
+	fmt.Scanln(&ruta)
+
+	archivo, err := os.Open(ruta)
+	if err != nil {
+		log.Fatal("Archivo no existe "+ruta, err)
+	}
+	defer archivo.Close()
+
+	csvReader := csv.NewReader(archivo)
+	users, err := csvReader.ReadAll()
+	if err != nil {
+		log.Fatal("Error en la lectura del archivo"+ruta, err)
+	}
+
+	var (
+		nombre   string
+		apellido string
+	)
+	for index, row := range users {
+		if index > 0 {
+
+			Completo := strings.Split(row[1], " ")
+			nombre = Completo[0]
+			apellido = Completo[1]
+			//fmt.Println(nombre, apellido)
+
+			carnet, _ := strconv.Atoi(row[0])
+			ColaAlumnos.Encolar(nombre, apellido, carnet, row[2])
+		}
+	}
+
+}
+
+func log1() string {
 	tiempo := time.Now()
 	Texto_Hora := ""
 	Texto_Fecha := ""
