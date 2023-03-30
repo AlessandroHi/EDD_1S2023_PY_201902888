@@ -1,0 +1,11 @@
+digraph pilaAdmin{
+ {rank=same 
+ rankdir=LR;
+nodoP0[style=filled, fillcolor="#CFEF41",color="#6349F0",shape=record label="{Acepto estudiante: Ebany Larios 
+2023-03-02 20:59:18|Rechazo estudiante: Leonardo Martinez 
+2023-03-02 20:59:16|Acepto estudiante: Cristian Suy 
+2023-03-02 20:59:13|Rechazo estudiante: aless chacon 
+2023-03-02 20:59:11|Acepto estudiante: Ivan hilario 
+2023-03-02 20:59:09}"];   
+} 
+}

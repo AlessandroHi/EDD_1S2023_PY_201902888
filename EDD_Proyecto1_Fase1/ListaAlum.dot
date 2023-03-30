@@ -1,0 +1,23 @@
+digraph ListaAlum{
+	         	{rank=same;
+111145[style=filled, shape=box, fillcolor="#8AECDC", label="Ivan  hilario \n 111145"]
+201403877[style=filled, shape=box, fillcolor="#8AECDC", label="Ebany  Larios \n 201403877"]
+201700918[style=filled, shape=box, fillcolor="#8AECDC", label="Cristian  Suy \n 201700918"]
+  }
+	           111145 -> 201403877 -> 201700918
+201403877 -> 111145 
+201700918 -> 201403877 
+ {rank=same 
+ rankdir=LR;
+Ivan[style=filled, fillcolor="#CFEF41",color="#6349F0",shape=record label="{|Se inicio sesion 
+2023-03-02 21:01:28|Se inicio sesion 
+2023-03-02 21:01:11}"];
+Ebany[style=filled, fillcolor="#CFEF41",color="#6349F0",shape=record label="{|Se inicio sesion 
+2023-03-02 21:02:03}"];
+Cristian[style=filled, fillcolor="#CFEF41",color="#6349F0",shape=record label="{}"];
+}
+111145 -> Ivan
+201403877 -> Ebany
+201700918 -> Cristian
+
+}

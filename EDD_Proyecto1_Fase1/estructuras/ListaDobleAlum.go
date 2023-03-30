@@ -137,7 +137,7 @@ func (l *ListaDoble) Graficar() {
 
 func (l *ListaDoble) ArchivoJSON() {
 	contenido := "{\n"
-	contenido += "\t\"Alumnos\": [\n"
+	contenido += "\t\"alumnos\": [\n"
 	//SOLO SI HAY UN ESTUDIANTES
 	if l.Longuitud == 1 {
 		aux3 := l.inicio

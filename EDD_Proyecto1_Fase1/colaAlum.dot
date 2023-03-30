@@ -1,0 +1,19 @@
+digraph colaAlum{
+	         	{rank=same;
+201902259[style=filled, shape=box, fillcolor="#8AECDC", label="Lourdes  Reyes \n 201902259"]
+201903549[style=filled, shape=box, fillcolor="#8AECDC", label="Alejandro  Caballeros \n 201903549"]
+201900570[style=filled, shape=box, fillcolor="#8AECDC", label="Jonatan  Gonzalez \n 201900570"]
+201700653[style=filled, shape=box, fillcolor="#8AECDC", label="Kevyn  Giron \n 201700653"]
+202004703[style=filled, shape=box, fillcolor="#8AECDC", label="Eduardo  Cuevas \n 202004703"]
+202000544[style=filled, shape=box, fillcolor="#8AECDC", label="Roberto  Gomez \n 202000544"]
+202002940[style=filled, shape=box, fillcolor="#8AECDC", label="Sebastian  Godoy \n 202002940"]
+201801683[style=filled, shape=box, fillcolor="#8AECDC", label="Juan  Augusto \n 201801683"]
+201700375[style=filled, shape=box, fillcolor="#8AECDC", label="Bryan  Montepeque \n 201700375"]
+  }
+	           201902259 -> 201903549 -> 201900570 -> 201700653 -> 202004703 -> 202000544 -> 202002940 -> 201801683 -> 201700375
+}-> 201903549 -> 201900570 -> 201700653 -> 202004703 -> 202000544 -> 202002940 -> 201801683 -> 201700375
+}2259 -> 201903549 -> 201900570 -> 201700653 -> 202004703 -> 202000544 -> 202002940 -> 201801683 -> 201700375
+}-> 201903549 -> 201900570 -> 201700653 -> 202004703 -> 202000544 -> 202002940 -> 201801683 -> 201700375
+}549 -> 201900570 -> 201700653 -> 202004703 -> 202000544 -> 202002940 -> 201801683 -> 201700375
+}549 -> 201900570 -> 201700653 -> 202004703 -> 202000544 -> 202002940 -> 201801683 -> 201700375
+}
