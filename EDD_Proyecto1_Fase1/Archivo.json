@@ -17,6 +17,12 @@
 			"carnet": 201700918, 
 			"password": "Cris123", 
 			"Carpeta_Raiz": "/" 
+		},
+		{
+			"nombre": "Alessandro Chacon", 
+			"carnet": 201902888, 
+			"password": "aless123", 
+			"Carpeta_Raiz": "/" 
 		}
 	]
 }

@@ -6,6 +6,7 @@
     <title>Admin</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <body>
     <div class="cabeza">
         <header>
@@ -18,26 +19,37 @@
     </div>
    
     <div class="upload">
-      <button type="button" class="btn-warning">Mostrar Alumnos
+      <button type="button" class="btn-warning" onclick="refresAlumos()">Mostrar Alumnos
       </button>
-      <button type="button" class="btn-warning">Arbol de estudiantes
+      <button type="button" class="btn-warning" onclick="refrescarArbol()">Arbol de estudiantes
       </button>
       <button type="button" class="btn-warning">
         <i class="fa fa-upload"></i> Carga Masiva
-        <input type="file" />
+        <input id="input" type="file" />
       </button>
     </div>
     <div class="table">
       <h3>Estudiantes</h3>
-      <div class="table-alumnos">
-        <table border="1">
+      <div class="table-alumnos" >
+        <table border="1" id="data-table1">
           <tr>
             <th>Carnet</th>
             <th>Nombre</th>
-          </tr>
+          </tr>        
         </table>
       </div>
     </div>
+    <center>
+      <div class="arbolAVL">
+        <h3>Arbol de estudiantes</h3>
+        <div class="arbolAVL-img">
+          <img id="image">
+        </div>
+      </div>
+
+    </center>
+      
+ 
 
  
     <script
@@ -45,6 +57,8 @@
       integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
       crossorigin="anonymous"
     ></script>
+    <script src="/EDD_Proyecto1_Fase2/estructuras/main.js">
+    </script>
 
     
   </body>

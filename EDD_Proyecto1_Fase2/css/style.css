@@ -142,10 +142,15 @@ header{
   
 
   .table h3{
+    margin-left: 23%;
+    width: 55%;
     display: grid;
     justify-content: center;
     margin-bottom: 20px;
-
+    margin-top: 10px;
+    background-color: aqua;
+    border-radius: 8px;
+    border: 1.5px solid black;
   }
 
 .table-alumnos{
@@ -174,17 +179,37 @@ th,td{
 
 td{
     transition: 1s all;
+    background: rgb(255, 255, 255);
+    color: #080808;
     
 }
 
 tr,th{
     background: rgb(61, 61, 255);
-    color: #ffff;
     height: 15px;
 }
 
 tr:hover{
    background: rgb(216, 215, 215);
    font-size: 16.7px;
-   color: #e82020;
+   
+}
+
+td:hover{
+    color: #0073ff;
+}
+
+.arbolAVL h3{
+    margin-top: 30px;
+    background-color: aqua;
+    margin-bottom: 10px;
+    width: 55%;
+    border-radius: 8px;
+    border: 1.5px solid black;
+}
+
+.arbolAVL-img{
+    width: 100%;
+    height: 100%;
+
 }
