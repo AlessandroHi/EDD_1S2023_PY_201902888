@@ -205,6 +205,7 @@ function onReaderLoad(event){
         tr.innerHTML = "<td>"+alumnos.alumnos[i].carnet+"</td>"+ "<td>"+alumnos.alumnos[i].nombre+"</td>";
         divtable.appendChild(tr);
     }
+    console.log("HOLAAAAAAAAA")
 }
 
 function refrescarArbol(){
