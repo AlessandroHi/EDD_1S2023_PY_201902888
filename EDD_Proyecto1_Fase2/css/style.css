@@ -10,6 +10,25 @@
 body {
     font-family: 'Roboto Mono';
     font-size: 400;
+    background: linear-gradient(rgb(205, 61, 221), rgb(26, 204, 148));
+    
+   
+}
+
+h5,h3,h2,h6,strong{
+    color: #000000;
+}
+
+hr{
+    color: #000000;
+}
+
+.body-login{
+    background: #fff;
+}
+
+.body-student{
+    background: linear-gradient(rgb(205, 61, 221), rgb(26, 204, 148));
 }
 
 .encabezado{
@@ -29,7 +48,7 @@ body {
     justify-content: center;
     padding: 20px;
     border-radius: 15px;
-    background: linear-gradient(rgb(221, 92, 159), rgb(75, 35, 194));
+    background: linear-gradient(rgb(198, 244, 81), rgb(86, 174, 222));
 
 }
 
@@ -121,7 +140,7 @@ header{
     line-height: 1.5;
     border-radius: 3px;
     color: #fff;
-    background-color: #0073ff;
+    background-color:#c04c0dfc;
     border: 0;
     transition: 0.2s;
     overflow: hidden;
@@ -137,7 +156,7 @@ header{
   }
   
   .btn-warning:hover{
-    background-color: #10a0b3cf;
+    background-color: #cbd724cf;
   }
   
 
@@ -208,8 +227,29 @@ td:hover{
     border: 1.5px solid black;
 }
 
-.arbolAVL-img{
-    width: 100%;
+.arbolAVL-img img{
+    width: 90%;
     height: 100%;
+    margin-bottom: 30px;
+}
 
+
+/* ------------ PARTE DE ESTUDIANTE  ----------*/
+.info-estudent{
+    display: grid;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center; 
+}
+
+.folder:hover{
+    background-color: rgb(187, 195, 206);
+    color: rgb(17, 17, 17);
+    transform: .3s;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
 }
