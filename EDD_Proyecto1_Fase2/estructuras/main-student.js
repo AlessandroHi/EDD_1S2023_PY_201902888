@@ -1,16 +1,21 @@
 
-
-
 /* ------------ PARTE DE ESTUDIANTE  ----------*/
+const matriz = new Matriz()
 let tree =  new Tree();
-
+let nombreArchivo = ""
 function crearCarpeta(e){
     e.preventDefault();
     let folderName =  $('#folderName').val();
     let path =  $('#path').val();
     tree.insert(folderName, path);
-    alert("Todo bien!")
     $('#carpetas').html(tree.getHTML(path))
+    user = JSON.parse(localStorage.getItem("user"))
+    carnet = parseInt(user)
+    let arbol = new ArbolAVL()
+    let temp = localStorage.getItem("avl")
+    arbol.raiz = JSON.parse(temp).raiz
+    arbol.addTree(carnet,tree)
+    localStorage.setItem('avl',JSON.stringify(arbol))
 }
 
 function entrarCarpeta(folderName){
@@ -52,16 +57,18 @@ const subirArchivo =  async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const form = Object.fromEntries(formData);
-    // console.log(form.file.type);
+    nombreArchivo = form.file.name; //name file
+    console.log(nombreArchivo)
     let path = $('#path').val();
     if(form.file.type === 'text/plain'){
         // ARCHIVO DE TEXTO
+       
         let fr = new FileReader();
         fr.readAsText(form.file);
         fr.onload = () => { 
             // CARGAR ARCHIVO A LA MATRIZ
             tree.getFolder(path).files.push({
-                name: form.fileName, 
+                name: nombreArchivo, 
                 content: fr.result, 
                 type: form.file.type
             })
@@ -70,16 +77,35 @@ const subirArchivo =  async (e) => {
     }else{
         // IMÁGENES O PDF 
         let parseBase64 = await toBase64(form.file);
+        
         tree.getFolder(path).files.push({
-            name: form.fileName, 
+            name: nombreArchivo, 
             content: parseBase64, 
             type: form.file.type
         })
         $('#carpetas').html(tree.getHTML(path));
-        // console.log(parseBase64)
-        // $("#imagenSubida").attr("src", imgBase64); 
-        // console.log(await toBase64(form.file));
+    
     }
-    alert('Archivo Subido!')
 
+    matriz.insertarArchivo(nombreArchivo,1)
+    reporteMatriz();
+}
+
+function reporteMatriz(){
+    let url = 'https://quickchart.io/graphviz?graph=';
+    let body = matriz.reporte();
+    $("#image").attr("src",url+body)
+}
+
+function asignarPermisos(){
+    let permiso = document.getElementById("permiso").value
+    let file = document.getElementById("nameFile").value
+    let carnet = document.getElementById("traversal").value
+    matriz.colocarPermiso(file,carnet,permiso)
+    let arbol = new ArbolAVL()
+    let temp = localStorage.getItem("avl")
+    arbol.raiz = JSON.parse(temp).raiz
+    arbol.addMatrix(carnet,matriz)
+  
+    reporteMatriz()
 }

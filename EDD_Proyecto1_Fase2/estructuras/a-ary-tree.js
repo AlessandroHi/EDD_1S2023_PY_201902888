@@ -31,8 +31,6 @@ class Tree{
 
 
     getFolder(path){
-        // Padre sea una '/'
-        // console.log(path);
         if(path == this.root.folderName){
             return this.root;
         }else{
@@ -111,18 +109,11 @@ class Tree{
         return code;
     }
 
-
-    // insertFile(path, fileName, content, type){
-    //     let temp = this.getFolder(path);
-    //     temp.matriz.insertHeaderOnly(fileName, content, type);
-    // }    
-
-    // matrixGrpah(path){
-    //     let temp = this.getFolder(path);
-    //     console.log(temp.matriz);
-    //     return temp.matriz.graph();
-    // }
+    insertFile(path, fileName, content, type){
+        let temp = this.getFolder(path);
+        temp.matriz.insertHeaderOnly(fileName, content, type);
+     }    
+    
 }
 
 
-// module.exports = Tree;
