@@ -58,8 +58,29 @@ Funcion que da permisos a los archivos a estudiantes cargados al sistema
 
 #                              Manual de Usuario
 
-Ingresando al login
+## Ingresando al login
+Podremos ingresar en la parte de administrador y en la parte de estudiante
 
 ![Descripción de la imagen](/EDD_Proyecto1_Fase2/img/login.png  "Login")
 
+### Ingresando al administrador
+Parte donde se podra cargar con archivo JSON, asi mismo mostrar el arbol y mostrar en una tabla los estudiantes cargados al sistema
 
+![Descripción de la imagen](/EDD_Proyecto1_Fase2/img/tabla.png  "Tabla")
+
+![Descripción de la imagen](/EDD_Proyecto1_Fase2/img/arbol.png  "Arbol")
+
+
+### Ingresando al administrador
+Mostrando las opciones de poder crear carpeta, subir archivos , de la misma manera poder mostrar graficamente las carpeta mediante un arbol, con la misma situacion con la matriz con los permisos
+
+![Descripción de la imagen](/EDD_Proyecto1_Fase2/img/estudiante.png "Interfaz estudiante")
+
+Parte donde se muestra los archivos y carpetas creadas
+![Descripción de la imagen](/EDD_Proyecto1_Fase2/img/carpetas.png "Interfaz carpetas")
+
+Parte donde se muestra los arbol carpetas creadas
+![Descripción de la imagen](/EDD_Proyecto1_Fase2/img/arbolc.png "Interfaz carpetas")
+
+Podremos seleccionar al carnet que podes aplicar los permisos necesarios a los archivos cargados de la misma manera nos motrara graficamente
+![Descripción de la imagen](/EDD_Proyecto1_Fase2/img/permiso.png "Interfaz carpetas")
