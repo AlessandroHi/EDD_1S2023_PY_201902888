@@ -7,21 +7,37 @@ function login(){
     if(user == "admin" && pass == "admin"){
       window.location = "admin.html"
      
+    }else{
+        alumnos = JSON.parse(localStorage.getItem("alumnos"));
+        for(var i = 0; i < alumnos.alumnos.length; i++){
+            
+            if(alumnos.alumnos[i].carnet == user && alumnos.alumnos[i].password == pass){
+                localStorage.setItem("name",JSON.stringify(alumnos.alumnos[i].nombre))
+                localStorage.setItem("user",JSON.stringify(user))
+                window.location = "estudiante.html"
+                alert("Bienvenido")
+               
+            }
+        }
+            
+        }
+
     }
 
-}
-
 class nodoArbol {
-    constructor(nombre, carnet,password,carpeta_raiz){
+    constructor(nombre, carnet,password,carpeta_raiz,tree,matriz){
         this.izquierdo = null;
         this.derecho = null;
         this.nombre = nombre;
         this.carnet = carnet;
         this.password = password;
         this.carpeta_raiz = carpeta_raiz;
+        this.tree = tree
+        this.matriz = matriz
         this.altura = 1;
         this.factor_equilibrio = 0;
-    }    
+    }   
+    
 }
 
 class ArbolAVL {
@@ -63,7 +79,7 @@ class ArbolAVL {
 
     insertarValorHijo(nodo, raiz){
         if (raiz === null){
-            raiz = nodo
+            raiz= nodo
         }else{
             if (raiz.carnet === nodo.carnet){
                 raiz.carnet = nodo.carnet
@@ -98,21 +114,11 @@ class ArbolAVL {
     }
 
 
-    insertaValor(nombre, carnet,password,carpeta_raiz){
-        const nuevoNodo = new nodoArbol(nombre, carnet,password,carpeta_raiz);
+    insertaValor(nombre, carnet,password,carpeta_raiz,tree,matriz){
+        const nuevoNodo = new nodoArbol(nombre, carnet,password,carpeta_raiz,tree,matriz);
         this.raiz = this.insertarValorHijo(nuevoNodo,this.raiz);
     }
 
-    /**
-     * Estas Funciones son de la grafica de un Arbol Binario (Clase 7)
-     * No cambia nada de la clase anterior
-     * grafica_Arbol()
-     * retornarValoresArbol()
-     * 
-     * y para reiniciar todo el arbol (Clase 7)
-     * eliminarTodo()
-     * 
-     */
     grafica_arbol(){
         var cadena = "";
         if(!(this.raiz === null)){
@@ -170,6 +176,43 @@ class ArbolAVL {
         return cadena;
     }
 
+    addTree(user,tree){
+      this._addTREE(this.raiz,user,tree)
+    }
+
+    _addTREE(raiz,user,tree){
+      if(raiz != null){
+        if(raiz.carnet == user){
+            raiz.tree = tree
+          }else{
+            if(user < raiz.carnet){
+               this._addTREE(raiz.izquierdo,user,tree)
+            }else{
+                this._addTREE(raiz.derecho,user,tree)
+            }
+          }
+      }
+    }
+
+    addMatrix(user,matriz){
+        this._addTREE(this.raiz,user,matriz)
+      }
+  
+    _addMatrix(raiz,user,matriz){
+        if(raiz != null){
+          if(raiz.carnet == user){
+              raiz.matriz = matriz
+            }else{
+              if(user < raiz.carnet){
+                 this._addMatrix(raiz.izquierdo,user,tree)
+              }else{
+                  this._addMatrix(raiz.derecho,user,tree)
+              }
+            }
+        }
+      }
+
+    
     eliminarTodo(){
         this.raiz = null;
     }
@@ -191,6 +234,7 @@ function onReaderLoad(event){
     localStorage.setItem("alumnos",JSON.stringify(obj))
 
     for(var i = 0; i < obj.alumnos.length; i++){
+        console.log(typeof(obj.alumnos[i].carnet))
         arbolAVL.insertaValor(obj.alumnos[i].nombre,obj.alumnos[i].carnet,obj.alumnos[i].password,obj.alumnos[i].Carpeta_Raiz) 
     }
     localStorage.setItem("avl",JSON.stringify(arbolAVL))
@@ -217,3 +261,5 @@ function refresAlumos(){
         divtable.appendChild(tr);
     }
 }
+
+

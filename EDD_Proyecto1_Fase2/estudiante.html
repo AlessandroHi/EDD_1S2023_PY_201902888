@@ -1,95 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejemplo N-Ario</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Estudiante</title>
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"  
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="css/style.css" />
-</head>
-<body class="body-student">
+  </head>
+  <body class="body-student">
     <div class="cabeza">
-        <header>
-            <h3>Dashboard Adminstrador</h3>
-                
-            <button>
-                <a  class="button"  href="index.html"> Cerrar Sesion</a>
-            </button>
-          </header>
+      <header>
+        <h3>Dashboard Estudiante</h3>
+
+        <button>
+          <a class="button" href="index.html"> Cerrar Sesion</a>
+        </button>
+      </header>
+    </div>
+    <div>
+      <center id="log-estudiante">
+      
+      </center>
+    <hr> 
     </div>
     <div class="container text-light py-5">
-        <div class="row">
-            <div class="col-4 p-5">
-                <h5>Nueva Carpeta</h5>
-                <hr>
-                <form class="form" onsubmit="crearCarpeta(event)">
-                    <input type="text" id="folderName" name="folderName" class="form-control" placeholder="Nombre de Carpeta">
-                    <div class="form-group mt-4">
-                        <button type="submit" class="btn btn-danger w-100">Crear Carpeta</button>
-                    </div>
-                </form>
-                <h5 class="pt-4">Nuevo Archivo</h5>
-                <hr>
-                <form class="form" onsubmit="subirArchivo(event)">
-                    <input type="text" id="fileName" name="fileName" class="form-control mb-4"  placeholder="Ej. arhivo.png"/>
-                    <input type="file" id="file" name="file" class="form-control" accept="application/pdf, .txt, image/*">
-                    <div class="form-group mt-4">
-                        <button type="submit" class="btn btn-danger w-100">Subir Archivo</button>
-                    </div>
-                </form>
-                <h5 class="pt-4">Reportes</h5>
-                <hr>
-                <a onclick="showTreeGraph()" class="btn btn-danger w-100 mt-3">Gráfica de Árbol</a>
-                <a onclick="showMatrixGraph()" class="btn btn-danger w-100 mt-3">Gráfica de Matriz</a>
+      <div class="row">
+        <div class="col-4 p-5">
+          <h5>Nueva Carpeta</h5>
+          <hr />
+          <form class="form" onsubmit="crearCarpeta(event)">
+            <input
+              type="text"
+              id="folderName"
+              name="folderName"
+              class="form-control"
+              placeholder="Nombre de Carpeta"
+            />
+            <div class="form-group mt-4">
+              <button type="submit" class="btn btn-danger w-100">
+                Crear Carpeta
+              </button>
             </div>
-            <div class="col-8 p-5">
-                <h5 class="text-center">Archivos de Carpeta</h5>
-                <hr>
-                <div class="row">
-                    <div class="col-2 pt-2">
-                        <strong>Ruta Actual</strong>
-                    </div>
-                    <div class="col-6">
-                        <input type="text" id="path" name="path"  class="form-control" disabled value="/" />
-                    </div>
-                    <div class="col-4" >
-                        <button type="button" onclick="retornarInicio()" class="btn btn-danger w-100">Home</button>    
-                    </div>
-                </div>
-                <img id="imagenSubida"/>
-                <div class="row mt-4" id="carpetas">
-                </div>
+          </form>
+          <h5 class="pt-4">Nuevo Archivo</h5>
+          <hr />
+          <form class="form" onsubmit="subirArchivo(event)">
+            <input
+              type="file"
+              id="file"
+              name="file"
+              class="form-control"
+              accept="application/pdf, .txt, image/*"
+            />
+            <div class="form-group mt-4">
+              <button type="submit" class="btn btn-danger w-100">
+                Subir Archivo
+              </button>
             </div>
+           
+          </form>
+          <h5 class="pt-4">Reportes</h5>
+          <hr />
+          <a onclick="showTreeGraph()" class="btn btn-danger w-100 mt-3"
+            >Gráfica de Árbol</a
+          >
+         
         </div>
-
-        <div class="ROW">
-            <h3>Reporte</h3>
-            <hr>
-            <img id="graph">
+        <div class="col-8 p-5">
+          <h5 class="text-center">Archivos de Carpeta</h5>
+          <hr />
+          <div class="row">
+            <div class="col-2 pt-2">
+              <strong>Ruta Actual</strong>
+            </div>
+            <div class="col-6">
+              <input
+                type="text"
+                id="path"
+                name="path"
+                class="form-control"
+                disabled
+                value="/"
+              />
+            </div>
+            <div class="col-4">
+              <button
+                type="button"
+                onclick="retornarInicio()"
+                class="btn btn-danger w-100"
+              >
+                Home
+              </button>
+            </div>
+          </div>
+          <img id="imagenSubida" />
+          <div class="row mt-4" id="carpetas"></div>
         </div>
+      </div>
 
-        <a download=""></a>
+      <div class="ROW">
+        <h3 >Reportes</h3>
+        <hr />
+        <h4>Arbol</h4>
+        <img id="graph" />
+      </div>
+
+      <a download=""></a>
+    </div>
+    <div class="container">
+        <h4>Permisos</h4>
+        <div>
+            <hr />
+            <h6 class="pt-4">Carnet</h6>
+            <select id="traversal" name="traversal" class="form-select">
+                <option selected disabled >Seleccionar carnet</option>
+            </select>
+            <div>
+                <h6 class="pt-4">Nombre Archivo</h6>
+                <input type="text" id="nameFile" class="form-control" placeholder="Ej. archivo.pdf" aria-label="Example text with button addon" aria-describedby="button-addon1">
+            </div>
+            <div>
+                <h6 class="pt-4">r="solo lectura" w="escribir"</h6>
+                <input type="text" id="permiso" class="form-control" placeholder="Ej. rw - r - w" aria-label="Example text with button addon" aria-describedby="button-addon1">
+            </div>
+            
+          </div><br>
+          <button type="submit" class="btn btn-danger w-100" onclick="asignarPermisos()">
+            Otorgar permiso
+          </button> <hr />
+          <h5 class="pt-4">Matriz</h5>
+        <img id="image">
+        <iframe id="pdf" width=100% height=600></iframe>
     </div>
 
     <!-- JQUERY -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
-    crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
     <!-- Bootstrap -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" 
-    integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" 
-    crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" 
-    integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" 
-    crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+      integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+      integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      name = JSON.parse(localStorage.getItem("name"))
+      user = JSON.parse(localStorage.getItem("user"))
+      user1 = parseInt(user)
+      let divlog = document.getElementById("log-estudiante");
+      let h2 = document.createElement("h2");
+      h2.innerHTML = "Bienvenido " +name + " "+user1;
+      divlog.appendChild(h2);
+
+    alumnos = JSON.parse(localStorage.getItem("alumnos"));
+    for(var i = 0; i < alumnos.alumnos.length; i++){
+        if(user == alumnos.alumnos[i].carne ){
+           console.log("ya esta")
+        }else{
+            let divtable = document.getElementById("traversal")
+            let option = document.createElement("option");
+            option.innerHTML = alumnos.alumnos[i].carnet;
+            divtable.appendChild(option);
+        }
+    }
+
+    
+
+    </script>
 
     <!-- Importar Estructuras -->
     <script src="estructuras/a-ary-tree.js"></script>
-    <script src="estructuras/sparase-matrix.js"></script>
+    <script src="estructuras/matriz.js"></script>
+    <script src="estructuras/lib/cycle.js"></script>
     <!-- Importar Archivo Principal -->
     <script src="estructuras/main-student.js"></script>
-</body>
+    <script src="estructuras/main-admin.js"></script>
+  </body>
 </html>
