@@ -71,7 +71,7 @@ Parte donde se podra cargar con archivo JSON, asi mismo mostrar el arbol y mostr
 ![Descripción de la imagen](/EDD_Proyecto1_Fase2/img/arbol.png  "Arbol")
 
 
-### Ingresando al administrador
+### Ingresando al estudiante
 Mostrando las opciones de poder crear carpeta, subir archivos , de la misma manera poder mostrar graficamente las carpeta mediante un arbol, con la misma situacion con la matriz con los permisos
 
 ![Descripción de la imagen](/EDD_Proyecto1_Fase2/img/estudiante.png "Interfaz estudiante")
