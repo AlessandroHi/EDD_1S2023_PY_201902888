@@ -9,11 +9,14 @@ function login(){
      
     }else{
         alumnos = JSON.parse(localStorage.getItem("alumnos"));
+        console.log(pass)
+        console.log(user)
         for(var i = 0; i < alumnos.alumnos.length; i++){
             
             if(alumnos.alumnos[i].carnet == user && alumnos.alumnos[i].password == pass){
                 localStorage.setItem("name",JSON.stringify(alumnos.alumnos[i].nombre))
                 localStorage.setItem("user",JSON.stringify(user))
+               
                 window.location = "estudiante.html"
                 alert("Bienvenido")
                
