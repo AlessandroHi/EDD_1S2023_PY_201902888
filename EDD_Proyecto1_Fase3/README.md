@@ -82,7 +82,7 @@ Mostrando las opciones de poder crear carpeta, subir archivos , de la misma mane
 Parte donde se muestra los archivos y carpetas creadas
 ![Descripción de la imagen](/EDD_Proyecto1_Fase3/Home/imgs/report/folders.png "Interfaz carpetas")
 
-Parte donde se muestra el grafo carpetas creadas
+Grafo de carpetas
 ![Descripción de la imagen](/EDD_Proyecto1_Fase3/Home/imgs/report/grafo.png" Interfaz grafo")
 
 Podremos seleccionar al carnet que podes aplicar los permisos necesarios a los archivos cargados
