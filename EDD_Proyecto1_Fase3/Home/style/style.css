@@ -1,0 +1,335 @@
+
+.row {
+  display: flex;
+}
+
+.col-4 {
+  flex: 0 0 33.33%; /* Ancho de la columna izquierda, ajusta según tus necesidades */
+}
+
+.col-8 {
+  flex: 0 0 66.67%; 
+  padding-left: 15px;
+  
+}
+
+body {
+  background: linear-gradient(to bottom, #1c0970, #043c3c) no-repeat center center fixed; 
+    background-size: cover; 
+    font-family: Arial, sans-serif;
+    color: #000000;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+}
+
+h3{
+  margin-top: 15px;
+  margin-bottom: 0%;
+}
+
+button{
+  margin-top: 0px;
+}
+
+.container {
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 100px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.login-form{
+border-radius: 1000px;
+}
+
+.login-form__title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-form__label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.login-form__input-container {
+  margin-bottom: 15px;
+}
+
+.login-form__input {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-form__submit {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form__submit:hover {
+  background-color: #0056b3;
+}
+
+.login-form img{
+  width: 120px;
+}
+
+.login-form-img{
+   margin:auto;
+   padding: 0;
+   align-items: center;
+   display: grid;
+   justify-content: center;
+}
+   
+
+
+.containeradmin {
+  width: 85%;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  background-color: #fbfbfb;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.titulo{
+  text-align: center;
+}
+.titulo h1{
+  margin-left: 50px;
+
+}
+
+.titulo button {
+  display: block;
+  height: 3em;
+  margin: 0 0 0 auto;
+  background-color: #ff0000;
+  color:#fff
+}
+
+
+.titulo button:hover {
+  color:#fff;
+  background-color: #ed7750;
+}
+
+
+
+
+.form {
+  margin: auto;
+  display: grid;
+  margin: 0px;
+  padding: 0%;
+  width: 150px;
+}
+
+/* Estilos para los botones */
+.btn {
+  margin-top: 10px;
+  
+}
+
+/* Estilos para la tabla */
+#studentsTable {
+  width: 96%;
+  margin-right: 10px;
+  text-align: center;
+  border-collapse: collapse;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #000;
+}
+#TablePermisos {
+  width: 100%;
+  
+  text-align: center;
+  border-collapse: collapse;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #000;
+}
+.table, 
+.HashTable,
+.PERMISOS {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  
+  border: 1px solid #000;
+}
+thead {
+  background-color: #efe098;
+}
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+tbody tr:hover {
+  background-color: #e2e2e2;
+}
+
+th,
+td {
+  border: 1px solid #000;
+  padding: 8px;
+  text-align: center;
+}
+
+.reporte {
+  max-width: 100%; /* Ajusta el ancho máximo del contenedor del reporte según tus necesidades */
+  margin-top: 20px;
+}
+
+/* Estilos para el título del reporte */
+.reporte h1 {
+  font-size: 24px; /* Ajusta el tamaño de fuente del título según tus necesidades */
+   margin: 0px;
+  text-align: center;
+  color: #333; /* Color del texto del título */
+}
+
+/* Estilos para la línea horizontal del reporte */
+.reporte hr {
+  margin-top: 0;
+  margin-bottom: 20px;
+  border: none;
+  border-top: 1px solid #000;
+}
+
+/* Estilos para la imagen del reporte de árbol */
+#graphAVL {
+  max-width: 100%;
+  margin-top: 20px;
+  border: 1px solid #ddd; /* Borde alrededor de la imagen */
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+
+#reporte {
+  text-align: center;
+}
+#TablaHash {
+  text-align: center;
+}
+
+
+
+.load-button {
+  background-color: #7e350b;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  text-align: center;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.load-button:hover {
+  background-color: #b0ef33;
+}
+.graph-button {
+  background-color: #7db85d;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  text-align: center;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+}
+#btnHash{
+  align-items: flex-start;
+  background-color: #7db85d;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  text-align: center;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+}
+#btnHash:hover{
+  background-color: #b0ef33;
+}
+
+.graph-button:hover {
+  background-color: #7db85d;
+}
+
+/* Estilos para el botón de carga de archivos */
+.file-label {
+  justify-content: center;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #7db85d;
+  font-size: 12px;
+  color: #0b0b0b;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.file-label:hover {
+  background-color: #b0ef33;
+}
+.file-icon {
+  margin-right: 5px;
+}
+/* Estilos para ocultar el input de archivo */
+#inputFile {
+  display: none;
+}
+.btn{
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #7db85d;
+  font-size: 12px;
+  color: #0f0f0f;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.btn:hover {
+  background-color: #b0ef33;
+  color: #000;
+
+}
+
+
+
+/*Seleccionar un archivo*/
+.form {
+  padding: 20px;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+
+
+.custom-select {
+  height: 38px;
+  background-color: #ffffff;
+  color: #495057;
+  border: 1px solid #ced4da;
+  border-radius: 3px;
+}

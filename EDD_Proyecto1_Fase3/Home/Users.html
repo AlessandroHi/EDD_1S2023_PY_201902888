@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" type="text/css" href="./style/stylesusers.css">
+    <title>Usuario Prueba</title>
+  </head>
+  <body>
+    <div class="containeradmin">
+      <div class="titulo" id="Bienvenido1">
+      
+        <button class="btn btn-primary" onclick="goBack()">Cerrar Sesion</button>
+        <hr />
+      </div>
+      <div class="row">
+        <div class="col-4">
+            <button type="button"  class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Mensajeria</button>   
+            <h3>Crear Carpeta</h3> <hr>
+            <form class="form" onsubmit="crearCarpeta(event)">
+                <input type="text" id="folderName" name="folderName" class="form-control" placeholder="Nombre de Carpeta">
+                <div class="form-group mt-4">
+                    <button type="submit" class="btn btn-primary w-100">Crear Carpeta</button>
+                    <a onclick="showTreeGraph()" class="btn btn-primary w-100 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal1">Gráficar de Árbol</a>
+                </div>
+            </form>
+            <h3 class="pt-4">Nuevo Archivo</h3>
+            <hr>
+            <form class="form" onsubmit="subirArchivo(event)">
+                <input type="text" id="fileName" name="fileName" class="form-control mb-4" placeholder="Nombre de Archivo"/>
+                <input type="file" id="file" name="file" class="form-control" accept="application/pdf, .txt, image/*" placeholder="">
+                <div class="form-group mt-4">
+                    <button type="submit" class="btn btn-primary w-100">Subir Archivo</button>
+                </div>
+            </form>
+            <h3>Permisos</h3><hr>
+            <form class="form" onsubmit="DarPermisos(event)">
+                <div class="premisos">
+                    <div class="col-8">
+                        <input type="text" id="archivo" name="archivo" class="form-control" placeholder="Ingresa nombre del archivo">
+                        <select id="traversal" name="traversal" class="form-select">
+                            <option selected disabled >Seleccionar carnet</option>
+                        </select>
+                       
+                        <select name="permiso" id="permiso">
+                            <option value="r">r</option>
+                            <option value="W">w</option>
+                            <option value="r-w">r-w</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                       
+                        <button type="submit" class="btn btn-primary w-100">Otorgar permiso</button>    
+                    </div>
+                </div>
+            </form>
+
+        </div>
+           <!--  AREA DE CARPETAS -->
+           <div class="col-8">
+            <h3 class="text-center">Archivos de Carpeta</h3>
+            <hr>
+            <div class="row">
+                <div class="col-2 pt-2">
+                    <strong>Ruta Actual</strong>
+                </div>
+                <div class="col-6">
+                    <input type="text" id="path" name="path"  class="form-control" disabled value="/" />
+                </div>
+                <div class="col-4" >
+                    <button type="button" onclick="retornarInicio()" class="btn btn-primary w-100">Inicio</button>   
+                     
+                </div>
+            </div>
+            <img id="imagenSubida"/>
+            <div class="row mt-4" id="carpetas">
+                <!-- MOSTRAR LAS CARPETAS -->
+                <!-- <div class="col-2 folder" onclick="">
+                    <img src="./imgs/folder.png" width="100%"/>
+                    <p class="h6"> Nombre de Carpeta</p>
+                </div> -->
+            </div>
+        
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal CHATS -->
+<div class="modal fade modal-lg" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Mensajeria</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                
+                <div class="row">
+        
+                    <div class="col-5">
+                        <!-- SLECCIONAR ESTUDAINTE RECEPTOR -->
+                        <h4>Estudiante recepetor:</h4>
+                        <select class="form-select" id="receiver" onchange="updateChats()">
+                            <option value="">--Seleccionar usuario--</option>
+                        </select>
+                        <!-- ----------------------------------------------------- -->
+        
+                        <!-- DIV PARA MOSTRAR EL CHAT DEL RECEPTOR -->
+                        <div class="container mt-3 p-0 border" style="height:400px;overflow-y: scroll;" id="receiver-chat">
+                            
+                        </div>
+                        <!-- ----------------------------------------------------- -->
+        
+        
+                        <!-- FORMULARIO PARA ESCRIBIR MENSAJES AL RECEPTOR -->
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-9">
+                                    <input type="text" class="form-control" id="msg-receiver"/>
+                                </div>
+                                <div class="col-3">
+                                    <button class="btn btn-success w-100" onclick="sendMessage('transmitter')">Enviar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ----------------------------------------------------- -->
+        
+                    </div>
+                </div>
+        
+              
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal GRAFO -->
+  <div
+  class="modal fade modal-lg"
+  id="exampleModal1"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Grafo</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <center>
+            <img id="graph">
+        </center>
+      </div>
+      <div class="modal-footer">
+        <button
+        type="button"
+        class="btn btn-secondary"
+        data-bs-dismiss="modal"
+      >
+        Close
+      </button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+    <!-- JQUERY -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+      <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    
+    <!-- Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+      integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+      integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Librerias encrip-->
+    <script src="../js/Estructuras/Libreria/cycle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+    <!-- Importar Estructuras -->
+    <script src="../js/Estructuras/Estudiante.js"></script>
+    <script src="../js/Estructuras/Arbol_AVL.js"></script>
+    <script src="../js/Estructuras/Arbol_Dirigido.js"></script>
+    <script src="../js/Estructuras/Hash.js"></script>
+    <script src="../js/Estructuras/BlockChain.js"></script>
+    <!-- Importar Archivo Principal -->
+    <script src="../js/index.js"></script>
+  </body>
+</html>

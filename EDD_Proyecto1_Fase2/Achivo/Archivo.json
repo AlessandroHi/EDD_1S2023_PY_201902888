@@ -1,0 +1,76 @@
+{
+	"alumnos": [
+		{
+			"nombre": "Ebany Larios", 
+			"carnet": 201403877, 
+			"password": "qwerty12", 
+			"Carpeta_Raiz": "/" 
+		},
+		{
+			"nombre": "Bryan Montepeque", 
+			"carnet": 201700375, 
+			"password": "Bryan131", 
+			"Carpeta_Raiz": "/" 
+		},
+		{
+			"nombre": "Kevyn Giron", 
+			"carnet": 201700653, 
+			"password": "Kevyn126", 
+			"Carpeta_Raiz": "/" 
+		},
+		{
+			"nombre": "Cristian Suy", 
+			"carnet": 201700918, 
+			"password": "Cris123", 
+			"Carpeta_Raiz": "/" 
+		},
+		{
+			"nombre": "Leonardo Martinez", 
+			"carnet": 201780044, 
+			"password": "leo123", 
+			"Carpeta_Raiz": "/" 
+		},
+		{
+			"nombre": "Juan Augusto", 
+			"carnet": 201801683, 
+			"password": "Juan130", 
+			"Carpeta_Raiz": "/" 
+		},
+		{
+			"nombre": "Jonatan Gonzalez", 
+			"carnet": 201900570, 
+			"password": "Jonatan125", 
+			"Carpeta_Raiz": "/" 
+		},
+		{
+			"nombre": "Lourdes Reyes", 
+			"carnet": 201902259, 
+			"password": "Lourdes123", 
+			"Carpeta_Raiz": "/" 
+		},
+		{
+			"nombre": "Alejandro Caballeros", 
+			"carnet": 201903549, 
+			"password": "Alejandro124", 
+			"Carpeta_Raiz": "/" 
+		},
+		{
+			"nombre": "Roberto Gomez", 
+			"carnet": 202000544, 
+			"password": "Roberto128", 
+			"Carpeta_Raiz": "/" 
+		},
+		{
+			"nombre": "Sebastian Godoy", 
+			"carnet": 202002940, 
+			"password": "Sebastian129", 
+			"Carpeta_Raiz": "/" 
+		},
+		{
+			"nombre": "Eduardo Cuevas", 
+			"carnet": 202004703, 
+			"password": "Eduardo127", 
+			"Carpeta_Raiz": "/" 
+		}
+	]
+}

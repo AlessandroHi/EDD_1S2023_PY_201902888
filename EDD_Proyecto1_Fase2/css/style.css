@@ -10,7 +10,7 @@
 body {
     font-family: 'Roboto Mono';
     font-size: 400;
-    background: linear-gradient(rgb(205, 61, 221), rgb(26, 204, 148));
+    background: linear-gradient(rgb(6, 16, 89), rgb(4, 42, 30));
     
    
 }
@@ -28,7 +28,7 @@ hr{
 }
 
 .body-student{
-    background: linear-gradient(rgb(205, 61, 221), rgb(26, 204, 148));
+    background: linear-gradient(rgb(6, 16, 89), rgb(4, 42, 30));
 }
 
 .encabezado{
