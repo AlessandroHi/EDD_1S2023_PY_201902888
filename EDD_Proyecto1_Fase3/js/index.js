@@ -37,6 +37,9 @@ function ComprobarUser(evento){
             TablaHash.capacidad =JSON.parse(temp).capacidad
             TablaHash.espaciosUsados =JSON.parse(temp).espaciosUsados
             //console.log(avlTree.raiz);
+
+            let carnet = TablaHash.search(username);
+            console.log(carnet)
             
             
             //encontrado = null;
@@ -767,6 +770,7 @@ async function sendMessage(whoSend){
 
 
 function getBlock(index){
+    
     if(index === 0){
         let html = blockChain.blockReport(index);
         if(html){
@@ -802,3 +806,11 @@ function getBlock(index){
 function goBack2() {
     window.location.href = "Users.html";
   }
+
+
+function blockgraf(){
+    let chat = localStorage.getItem("blockChain");
+    blockChain2 = JSON.retrocycle(JSON.parse(chat));
+
+    blockChain2.blockReport();
+}

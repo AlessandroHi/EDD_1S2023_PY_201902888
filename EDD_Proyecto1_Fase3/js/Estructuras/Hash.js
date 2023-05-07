@@ -175,9 +175,7 @@ class HashTable{
 
         return html;
     }
-
-    
-    
+ 
 
     #inOrderRecursiveHash(table){
         
