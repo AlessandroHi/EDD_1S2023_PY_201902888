@@ -105,7 +105,6 @@ function goBack() {
 function inorderTraversal(node) {
     if (node !== null) {
    
-     
       inorderTraversal(node.izquierda);
       TablaHash.insert(node.Estudiante);
       inorderTraversal(node.derecha);
